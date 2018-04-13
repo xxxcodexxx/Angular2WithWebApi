@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")    
+    <script src="@Url.Content("~/node_modules/core-js/client/shim.min.js")"></script>
+    <script src="@Url.Content("~/node_modules/zone.js/dist/zone.js")"></script>
+    <script src="@Url.Content("~/node_modules/systemjs/dist/system.src.js")"></script>
+    <script src="@Url.Content("~/systemjs.config.js")"></script>
+</head>
+@*<body class="skin-blue sidebar-mini">*@
+<body>
+    @*<div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="@Url.Content("~/")" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <img src="@Url.Content("../dist/img/logo.png")" alt="Sun Realty">
+                <!-- <span class="logo-mini"><b>A</b>LT</span> -->
+                <!-- logo for regular state and mobile devices -->
+                <!-- <span class="logo-lg"><b>Admin</b>LTE</span> -->
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">you navigation</span>
+                </a>
+
+                <!-- Navbar Right Menu -->
+
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href="@Url.Content("~/")">
+                            <i class="fa fa-home"></i><span>Home</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="@Url.Content("~/home/user")">
+                            <i class="fa fa-user"></i> <span>User</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header"></section>
+            <!-- Main content -->
+            <section class="content">
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+        <footer class="main-footer">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>*@
+
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/adminLTEJs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

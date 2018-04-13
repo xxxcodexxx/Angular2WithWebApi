@@ -1,0 +1,522 @@
+/*!
+ *   AdminLTE v2.3.7
+ *   Author: Almsaeed Studio
+ *	 Website: Almsaeed Studio <http://almsaeedstudio.com>
+ *   License: Open source - MIT
+ *           Please visit http://opensource.org/licenses/MIT for more information
+!*/
+/*
+ * Core: General Layout Style
+ * -------------------------
+ */
+/* Fixed layout */
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
+body{
+    font-size:13px;
+}
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'arial', 'tahoma', 'Roboto', sans-serif !important;
+}
+.contain {
+    position: relative;
+    margin: 155px auto;
+    width: 200px;
+}
+.fixed-header .main-header {
+    position: fixed;
+}
+
+.fixed-header .main-header {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.skin-red-light .main-header .logo {
+    background: #a21929 url(../img/bg_right.jpg) top left no-repeat;
+}
+
+.skin-red-light .main-header .navbar {
+    background: #a21929 url(../img/bg_right.jpg) top right repeat-x;
+}
+
+.banghang {
+    margin-left: 5px;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: auto;
+    position: relative;
+    min-height: calc(100vh - 320px);
+    background: #FFF;
+    padding-top: 10px;
+}
+
+.bh-head {
+}
+
+.bl-head {
+    float: left;
+    padding: 5px 10px;
+}
+
+.bhstt {
+    float: left;
+    margin-top: 5px;
+    padding: 13px 30px;
+    width: 48px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.bh-body-row {
+    height: 51px;
+}
+
+    .bh-body-row ul {
+        margin-left: 15px;
+    }
+
+.bh-tang ul li {
+    list-style: none;
+    border: solid 1px #f1f1f1;
+}
+
+.bh-tang .detail-sp {
+    display: inline-block;
+    float: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 1px 3px;
+    min-width: 80px;
+    width: auto;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btn-filter {
+    padding: 4px 15px;
+    border-radius: 3px;
+    color: #FFF;
+    border: none;
+    margin-right: 5px;
+    font-size: 11px;
+    opacity: 0.6;
+}
+
+    .btn-filter:target {
+        opacity: 1 !important;
+    }
+
+    .btn-filter:hover, .btn-filter:focus, .btn-filter:visited {
+        -webkit-box-shadow: 3px 3px 6px 0px rgba(66,55,66,1);
+        -moz-box-shadow: 3px 3px 6px 0px rgba(66,55,66,1);
+        box-shadow: 3px 3px 6px 0px rgba(66,55,66,1);
+        outline-color: transparent;
+        opacity: 1 !important;
+    }
+
+.tatca {
+    background: none;
+    border: solid 1px #666;
+    color: #000;
+}
+
+.khongban {
+    background: #828282;
+}
+
+.dangmoban {
+    background: #00a65a;
+}
+
+.danggiucho {
+    background: #825ab9;
+}
+
+.dadatcho {
+    background: #ff851b;
+}
+
+.chodatcoc {
+    background: #dd4b39;
+}
+
+.daban {
+    background: #3c8dbc;
+}
+
+.content-header {
+    /* margin-top:50px; */
+}
+
+.user-block .description {
+    color: #666;
+    font-size: 12px;
+}
+
+.post:last-of-type {
+    border-bottom: inherit;
+    margin-bottom: inherit;
+    padding-bottom: inherit;
+}
+
+.bh-tang table {
+    border-collapse: collapse;
+}
+
+.bh-tang table, .bh-tang tr, .bh-tang td {
+    border: 1px solid #f1f1f1;
+}
+
+.banghang-modal {
+    height: calc(100vh - 320px);
+}
+
+    .banghang-modal .bh-body-row {
+        height: 51px;
+    }
+
+        .banghang-modal .bh-body-row .bh-tang .detail-sp {
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+    .banghang-modal .bh-tang ul li {
+        width: 72px;
+    }
+
+    .banghang-modal .bhstt {
+        padding: 10px;
+        width: 60px;
+    }
+
+.chosen {
+    opacity: 1 !important;
+}
+
+.mailbox-controls .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 24px;
+}
+
+.box-reserved .todo-list > li {
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.user-block img {
+    width: 100px;
+    height: auto;
+}
+
+.user-block .username, .user-block .description, .user-block .comment {
+    margin-left: 110px;
+}
+
+/*Badges and Labels
+------------------------------------*/
+.label {
+    border-radius: 0;
+}
+
+/*Labels*/
+span.label {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 4px 7px;
+}
+
+/*Badges*/
+span.badge,
+.list-group-item.active > .badge {
+    color: #fff;
+    font-weight: 400;
+    padding: 4px 4px;
+    font-size: 10px;
+}
+
+    span.label-u,
+    span.badge-u,
+    .list-group-item.active > .badge.badge-u {
+        background: #72c02c;
+    }
+
+span.label-blue,
+span.badge-blue,
+.list-group-item.active > .badge {
+    background: #3498db;
+}
+
+span.label-red,
+span.badge-red,
+.list-group-item.active > .badge {
+    background: #e74c3c;
+}
+
+    span.label-green,
+    span.badge-green,
+    .list-group-item.active > .badge.badge-green {
+        background: #2ecc71;
+    }
+
+    span.label-sea,
+    span.badge-sea,
+    .list-group-item.active > .badge.badge-sea {
+        background: #1abc9c;
+    }
+
+    span.label-orange,
+    span.badge-orange,
+    .list-group-item.active > .badge.badge-orange {
+        background: #e67e22;
+    }
+
+    span.label-yellow,
+    span.badge-yellow,
+    .list-group-item.active > .badge.badge-yellow {
+        background: #f1c40f;
+    }
+
+    span.label-purple,
+    span.badge-purple,
+    .list-group-item.active > .badge.badge-purple {
+        background: #9b6bcc;
+    }
+
+    span.label-aqua,
+    span.badge-aqua,
+    .list-group-item.active > .badge.badge-aqua {
+        background: #27d7e7;
+    }
+
+    span.label-brown,
+    span.badge-brown,
+    .list-group-item.active > .badge.badge-brown {
+        background: #9c8061;
+    }
+
+    span.label-dark-blue,
+    span.badge-dark-blue,
+    .list-group-item.active > .badge.badge-dark-blue {
+        background: #4765a0;
+    }
+
+    span.label-light-green,
+    span.badge-light-green,
+    .list-group-item.active > .badge.badge-light-green {
+        background: #79d5b3;
+    }
+
+    span.label-light,
+    span.badge-light,
+    .list-group-item.active > .badge.badge-light {
+        color: #777;
+        background: #ecf0f1;
+    }
+
+    span.label-dark,
+    span.badge-dark,
+    .list-group-item.active > .badge.badge-dark {
+        background: #555;
+    }
+
+/*Badge Lists*/
+.badge-lists li {
+    position: relative;
+}
+
+.badge-lists span.badge {
+    top: -10px;
+    right: -6px;
+    position: absolute;
+}
+
+/*Badge Icons*/
+.badge-lists.badge-icons span.badge {
+    min-width: 12px;
+    padding: 3px 6px;
+}
+
+.badge-lists.badge-icons i {
+    font-size: 18px;
+    min-width: 25px;
+}
+/*Rounded and Circle Classes
+------------------------------------*/
+.no-rounded {
+    border-radius: 0 !important;
+}
+
+.rounded {
+    border-radius: 4px !important;
+}
+
+.rounded-x {
+    border-radius: 50% !important;
+}
+
+.rounded-2x {
+    border-radius: 10px !important;
+}
+
+.rounded-3x {
+    border-radius: 15px !important;
+}
+
+.rounded-4x {
+    border-radius: 20px !important;
+}
+
+.rounded-sm {
+    border-radius: 2px !important;
+}
+
+.rounded-md {
+    border-radius: 3px !important;
+}
+
+.rounded-top {
+    border-radius: 4px 4px 0 0 !important;
+}
+
+.rounded-left {
+    border-radius: 4px 0 0 4px !important;
+}
+
+.rounded-right {
+    border-radius: 0 4px 4px 0 !important;
+}
+
+.rounded-bottom {
+    border-radius: 0 0 4px 4px !important;
+}
+
+.tieudecot tr th {
+    padding-right: 19px;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.text-bold{
+   font-weight:bold;
+}
+.text-upper{
+   text-transform:uppercase;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+    .thumbnail img {
+        width: 100px;
+        height: 100px;
+    }
+.bg-hold{
+    background-color:#825ab9;
+    color:#fff;
+}
+.modal-medium {
+    width: 500px!important;
+}
+.modal-body .chosen-container {
+    width: 100% !important;
+
+}
+
+
+.table-custom > tbody > tr:hover {
+    background-color: #ddd!important;
+}
+.td-warning{
+        background: yellow;
+    color: black;
+}
+.td-alert{
+        background: red;
+    color: white;
+}
+.tr-success{
+        background-color: #3c8dbc;
+    color: black !important;
+}
+
+table .collapse.in {
+	display:table-row;
+}
+td .badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+ .custom-table>thead>tr>th, .custom-table>tbody>tr>th, .custom-table>tfoot>tr>th, .custom-table>thead>tr>td, .custom-table>tbody>tr>td, .custom-table>tfoot>tr>td {
+    border-top: 1px solid #f4f4f4;
+    border-left: 1px solid #ddd;
+}
+ .custom-table>thead>tr>th {
+    border-bottom: 2px solid #f4f4f4;
+    border-left: 1px solid #ddd;
+}
+ .custom-table>caption+thead>tr:first-child>td, .custom-table>caption+thead>tr:first-child>th, .custom-table>colgroup+thead>tr:first-child>td, .custom-table>colgroup+thead>tr:first-child>th, .custom-table>thead:first-child>tr:first-child>td, .custom-table>thead:first-child>tr:first-child>th {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+ .custom-table > tbody> tr:hover{
+     background-color: #efebeb;
+ }
+ .file-manager-window .main-header, .file-manager-window .main-sidebar, .file-manager-window .main-footer{
+    display:none;
+}
+.file-manager-window .content-wrapper{
+    margin:0;
+}
+.modal-large{
+    width:50%!important;
+}
+/*.file-manager-window .content-wrapper, .file-manager-window .right-side{
+    background:none;
+}*/
+
+.bagger {
+    position: relative;
+}
+.bagger span {
+    position: absolute !important;
+    top: -6px !important;
+    right: -4px;
+    text-align: center;
+    font-size: 9px;
+    padding: 2px 3px;
+    line-height: .9;
+    border-radius: 2px
+}
+.ct-inactive {
+    opacity: 0.3;
+}
+.non-padding{
+    padding:0;
+}
+.boder-table tr,.boder-table td, .boder-table th{
+    border:1px solid #ddd !important;
+    border-left: 1px solid #ddd !important;
+}
+.boder-table th{
+    text-align:center;
+    vertical-align:middle !important;
+}

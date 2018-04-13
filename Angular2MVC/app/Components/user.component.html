@@ -1,0 +1,160 @@
+﻿
+<div class='ui-g'>
+    <div class="ui-g-12">
+        <div class="card card-w-title">
+            <div class="ui-g-12">
+                <h1>
+                    User Management
+                </h1>
+            </div>
+            
+            <div class='table-responsive'>
+                <div style="padding-bottom:10px"><p-button label="Add" styleClass="ui-button-icon-left ui-button-info" (onClick)="onNewUser()"><span class="ui-clickable fa fa-fw ui-icon-plus-one"></span></p-button></div>
+                <div class="ui-g form-group">
+                    <div class="ui-inputgroup">
+                        <span class="ui-autocomplete ui-widget">
+                            <input autocomplete="off" [(ngModel)]="filterText" (ngModelChange)="filter($event)" class="ui-inputtext ui-widget ui-state-default ui-corner-all ui-autocomplete-input ng-star-inserted" type="text" placeholder="Keywords" size="30">
+                            <div class="ui-autocomplete-panel ui-widget-content ui-corner-all ui-shadow" style="display: none; width: 100%; max-height: 200px;">
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" />Loading...</div>
+                <div *ngIf='users && users.length==0' style="text-align:center">
+                    <p-message severity="info" text="No record found!"></p-message>
+                </div>
+                <p-table *ngIf='users && users.length' [value]="users">
+                    <div class="ui-table ui-widget ui-table-responsive ui-table-hoverable-rows">
+                        <div class="ui-table-caption ui-widget-header">
+                            List of Users
+                        </div>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-user>
+                            <tr>
+                                <td>{{user.FirstName}}</td>
+                                <td>{{user.LastName}}</td>
+                                <td>{{user.Gender}}</td>
+                                <td>
+                                    <button pButton type="button" label="Edit" class="ui-button-primary" (click)="onEdit(user.Id)"></button>
+                                    <button pButton type="button" label="Delete" class="ui-button-danger" (click)="onDelete(user.Id)"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </div>
+                </p-table>
+                <div [class]="styleClass" [ngStyle]="style" [ngClass]="'ui-paginator ui-widget ui-widget-header ui-unselectable-text ui-helper-clearfix'" >
+                    <div class="ui-paginator-left-content" *ngIf="templateLeft">
+                        <ng-container *ngTemplateOutlet="templateLeft; context: {$implicit: paginatorState}"></ng-container>
+                    </div>
+                    <a href="#" class="ui-paginator-first ui-paginator-element ui-state-default ui-corner-all"
+                       (click)="changePageToFirst($event)" [ngClass]="{'ui-state-disabled':isFirstPage()}" [tabindex]="isFirstPage() ? -1 : null">
+                        <span class="fa fa-step-backward"></span>
+                    </a>
+                    <a href="#" class="ui-paginator-prev ui-paginator-element ui-state-default ui-corner-all"
+                       (click)="changePageToPrev($event)" [ngClass]="{'ui-state-disabled':isFirstPage()}" [tabindex]="isFirstPage() ? -1 : null">
+                        <span class="fa fa-backward"></span>
+                    </a>
+                    <span class="ui-paginator-pages">
+                        <a href="#" *ngFor="let pageLink of pageLinks" class="ui-paginator-page ui-paginator-element ui-state-default ui-corner-all"
+                           (click)="onPageLinkClick($event, pageLink)" [ngClass]="{'ui-state-active': (pageLink == currentPage)}">{{pageLink}}</a>
+                    </span>
+                    <a href="#" class="ui-paginator-next ui-paginator-element ui-state-default ui-corner-all"
+                       (click)="changePageToNext($event)" [ngClass]="{'ui-state-disabled':isLastPage()}" [tabindex]="isLastPage() ? -1 : null">
+                        <span class="fa fa-forward"></span>
+                    </a>
+                    <a href="#" class="ui-paginator-last ui-paginator-element ui-state-default ui-corner-all"
+                       (click)="changePageToLast($event)" [ngClass]="{'ui-state-disabled':isLastPage()}" [tabindex]="isLastPage() ? -1 : null">
+                        <span class="fa fa-step-forward"></span>
+                    </a>
+                    <div class="ui-paginator-right-content" *ngIf="templateRight">
+                        <ng-container *ngTemplateOutlet="templateRight; context: {$implicit: paginatorState}"></ng-container>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="msg" style="text-align:center">
+                <p-message severity="{{msgStyle}}" text="{{msg}}"></p-message>
+            </div>
+            </div>
+        </div>
+    </div>
+<p-dialog header="{{dialogTitle}}" [(visible)]="display" showEffect="fade" [modal]="true" [width]="500">
+    <div class="ui-g ui-fluid" *ngIf="user">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">FirstName</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="vin" [(disabled)]="disabled" [(ngModel)]="user.FirstName" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="year">LastName</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="year" [(disabled)]="disabled" [(ngModel)]="user.LastName" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="brand">Gender</label>
+            </div>
+            
+            <div class="ui-g-8">
+                <p-dropdown [options]="genders" [(disabled)]="disabled" [(ngModel)]="user.Gender" optionLabel="title" placeholder="Select a gender">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" class="ui-button-icon-left ui-button-danger" (click)="onCancel()" label="Cancel"></button>
+            <button type="button" pButton icon="fa-check" class="ui-button-icon-left ui-button-success" (click)="onSave()" label="{{dialogBtnTitle}}"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<!--<modal #modal>
+    <form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">{{modalTitle}}</h4>
+        </modal-header>
+        <modal-body>
+
+            <div class="form-group">
+                <div>
+
+                    <span class="ui-float-label">
+                        <input id="float-input" type="text" size="30" pInputText formControlName="FirstName">
+                        <label for="float-input">First name</label>
+                    </span>
+                </div>
+                <div>
+                    <span class="ui-float-label">
+                        <input id="float-input" type="text" size="30" pInputText formControlName="LastName">
+                        <label for="float-input">Last name</label>
+                    </span>
+                </div>
+                <div>
+                    <span>Gender*</span>
+                    <select formControlName="Gender" class="form-control">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+            </div>
+        </modal-body>
+        <modal-footer>
+            <div>
+                <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
+                <button type="submit" [disabled]="userFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+            </div>
+        </modal-footer>
+    </form>
+</modal>-->
